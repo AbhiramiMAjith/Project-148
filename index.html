@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>cat</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+    </head>
+    <body>
+        
+        <a-scene id ="scene">
+            <a-assets>
+                <a-asset-item id="bg" src = "./assets/bg/scene.gltf"></a-asset-item>
+                <a-asset-item id="catImg" src="./assets/cat/scene.gltf"></a-asset-item>
+                <a-asset-item id="torchImg" src="./assets/torch/scene.gltf"></a-asset-item>
+            </a-assets>
+
+            <a-sky color = "black"></a-sky>
+
+            <a-camera was-controls-enabled = "false" position = "0 0 1"></a-camera>
+
+            <a-entity id="bgEl" gltf-model="#bg" scale="0.1 0.1 0.1" position = "0 0 0" rotation="10 0 0"></a-entity>
+            <a-entity>
+                <a-entity id="cat" gltf-model = "#catImg" position = '-0.3 0 0.3' scale = "0.05 0.05 0.05" rotation="0 -90 0" shadow="cast : true; recieve : false"></a-entity>
+            </a-entity>
+            <a-entity id="torch" gltf-model="#torchImg" position = '0 -0.01 0.3' scale = "0.2 0.2 0.2" rotation="0 -90 0"></a-entity>
+
+            <a-entity light = "type : ambient; intensity : 0.5"></a-entity>
+            <a-entity light = "type : point;castShadow:true; intensity : 2.35; " position = '-0.3 0 0.4'></a-entity>
+        </a-scene>
+    </body>
+</html>
